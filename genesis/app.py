@@ -2,6 +2,7 @@
 import dearpygui.dearpygui as dpg
 from typing import Union, Optional
 from pathlib import Path
+from ui.menu_bar.menu_bar import MenuBar
 
 
 def set_font(
@@ -17,17 +18,6 @@ def set_font(
         custom_font = dpg.add_font(font_path, font_size)
 
     return custom_font
-
-
-# Toggle Window Visibility
-def toggle_visibility(sender, app_data, user_data):
-    item_id = user_data
-    is_visible = dpg.get_item_state(item_id)["visible"]
-
-    if is_visible:
-        dpg.configure_item(item_id, show=False)
-    else:
-        dpg.configure_item(item_id, show=True)
 
 
 # Callback function for the Chat Interface Send button
@@ -51,74 +41,12 @@ def on_apply(sender, app_data, user_data):
     print(f"Top-K: {top_k}, Top-P: {top_p}, Temperature: {temperature}")
 
 
-def open_chat_history(sender, app_data, user_data):
-    # Code to open a chat history file
-    pass
-
-
-def save_chat_history(sender, app_data, user_data):
-    # Code to save the current chat history
-    pass
-
-
-def save_chat_history_as(sender, app_data, user_data):
-    # Code to save the current chat history with a new file name
-    pass
-
-
-def close_viewport(sender, app_data, user_data):
-    # Code to close the viewport
-    pass
-
-
 def set_viewport_menu_bar() -> None:
-    # Set the Viewport Menu Options
+    menu_bar = MenuBar()
+
     with dpg.viewport_menu_bar():
-        # Set the Chat Menu Options
-        with dpg.menu(label="Chat"):
-            dpg.add_menu_item(
-                label="Open",
-                callback=open_chat_history,
-                user_data="open_chat_history",  # Pass the item ID as user_data
-            )
-            dpg.add_menu_item(
-                label="Save",
-                callback=save_chat_history,
-                user_data="save_chat_history",
-            )
-            dpg.add_menu_item(
-                label="Save as",
-                callback=save_chat_history_as,
-                user_data="save_chat_history_as",
-            )
-            dpg.add_menu_item(
-                label="Close",
-                callback=close_viewport,
-                user_data="close_viewport",
-            )
-        # Set the View Menu Options
-        with dpg.menu(label="View"):
-            dpg.add_menu_item(
-                label="Chat Interface",
-                callback=toggle_visibility,
-                user_data="chat_window",  # Pass the item ID as user_data
-            )
-            dpg.add_menu_item(
-                label="Chat Settings",
-                callback=toggle_visibility,
-                user_data="chat_settings",
-            )
-            dpg.add_menu_item(
-                label="General Settings",
-                callback=toggle_visibility,
-                user_data="general_settings",
-            )
-            dpg.add_menu_item(
-                label="Debug Tools",
-                callback=toggle_visibility,
-                user_data="debug_tools",
-            )
-        # Set the About Dialog
+        menu_bar.create_chat_menu()
+        menu_bar.create_view_menu()
 
 
 def set_chat_interface_window() -> None:
