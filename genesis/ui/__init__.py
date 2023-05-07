@@ -1,4 +1,4 @@
-# ui/__init__.py
+# genesis/ui/__init__.py
 import dearpygui.dearpygui as dpg
 
 
