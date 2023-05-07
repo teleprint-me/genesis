@@ -1,10 +1,19 @@
-Focusing on the viewport menu bar, you can create a subdirectory within the `ui` directory to organize the source files related to the menu bar and its items. Here's an updated directory structure:
+In that case, it's a great idea to include beginner-friendly neural network architectures as well. The `templates` directory can also include simpler architectures like the Tiny Neural Network you mentioned. This way, beginners can easily start with these simpler models and gradually progress towards more complex architectures as they gain more experience.
 
-```
+We can modify the directory structure to include the Tiny Neural Network:
+
+```sh
 genesis
 ├── app.py
 ├── __init__.py
 ├── models
+│   ├── templates
+│   │   ├── ff.py
+│   │   ├── cnn.py
+│   │   ├── rnn.py
+│   │   ├── transformer.py
+│   │   ├── gpt.py
+│   │   └── __init__.py
 │   ├── hugging_face.py
 │   ├── openai_api.py
 │   ├── eleven_labs_api.py
@@ -19,6 +28,8 @@ genesis
 │   ├── text_generation.py
 │   ├── developer_tools.py
 │   ├── debug_tools.py
+│   ├── configuration.py
+│   ├── helpers.py
 │   └── __init__.py
 ├── ui
 │   ├── main_window.py
@@ -35,16 +46,19 @@ genesis
 │   │   ├── help_menu.py
 │   │   └── __init__.py
 │   └── __init__.py
-└── utils
-    ├── configuration.py
-    ├── helpers.py
-    └── __init__.py
+└── __init__.py
 ```
 
-In this structure:
+Now, the `templates` directory contains the Tiny Neural Network, making it easier for beginners to get started with neural networks using the Genesis project.
 
--   A new `menu_bar` subdirectory is created within the `ui` directory.
--   Inside the `menu_bar` directory, separate source files are created for each menu item, such as `file_menu.py`, `edit_menu.py`, `view_menu.py`, `tools_menu.py`, `model_menu.py`, and `help_menu.py`.
--   The `__init__.py` file inside the `menu_bar` directory is used to import and expose the necessary classes and functions from the individual menu source files.
+Besides feed-forward networks, other basic types of neural networks include:
 
-This organization will help you to manage and maintain the menu-related functionalities in a modular way, making it easier to expand and modify the menu items in the future.
+1. Convolutional Neural Networks (CNN): Primarily used for image processing, pattern recognition, and computer vision tasks. They consist of convolutional, pooling, and fully connected layers.
+
+2. Recurrent Neural Networks (RNN): Designed for processing sequential data, RNNs are commonly used in natural language processing, speech recognition, and time series forecasting. They contain loops that allow information to persist, which makes them suitable for handling sequences.
+
+3. Long Short-Term Memory (LSTM) Networks: A special type of RNN that is designed to address the vanishing gradient problem in standard RNNs. LSTMs are used in various sequence-to-sequence tasks, such as machine translation, speech recognition, and text generation.
+
+4. Gated Recurrent Units (GRU): Another type of RNN, GRUs are similar to LSTMs but have a simpler architecture. They are used in similar applications, such as natural language processing and speech recognition.
+
+These are some of the fundamental types of neural networks, but there are many other architectures and variants available for specific use cases.
