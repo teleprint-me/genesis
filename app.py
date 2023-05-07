@@ -4,10 +4,7 @@ from typing import Optional, Union
 
 import dearpygui.dearpygui as dpg
 
-from genesis.ui.chat.interface import (
-    set_chat_interface_settings_window,
-    set_chat_interface_window,
-)
+from genesis.ui.chat.interface import ChatInterface, ChatSettings
 from genesis.ui.tool_bar import Toolbar
 
 
@@ -38,9 +35,11 @@ def main():
 
     set_viewport_toolbar()
 
-    set_chat_interface_window()
+    chat_interface = ChatInterface()
+    chat_interface.create_window()
 
-    set_chat_interface_settings_window()
+    chat_settings = ChatSettings()
+    chat_settings.create_window()
 
     # Bind the custom font to the text items with tags "chat_log" and "input"
     dpg.bind_font(custom_font)
