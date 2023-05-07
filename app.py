@@ -1,5 +1,4 @@
 # app.py
-from pathlib import Path
 from typing import Optional, Union
 
 import dearpygui.dearpygui as dpg
@@ -9,7 +8,7 @@ from genesis.ui.tool_bar import Toolbar
 
 
 def set_font(
-    font_path: Optional[Union[str, Path]] = None,
+    font_path: Optional[str] = None,
     font_size: Optional[int] = None,
 ) -> Union[int, str]:
     # Load the custom font from a TTF file
@@ -44,7 +43,7 @@ def main():
     # Bind the custom font to the text items with tags "chat_log" and "input"
     dpg.bind_font(custom_font)
 
-    dpg.create_viewport(title="Custom Title", width=800, height=600)
+    dpg.create_viewport(title="Genesis", width=800, height=600)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.start_dearpygui()
