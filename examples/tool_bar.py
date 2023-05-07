@@ -1,4 +1,4 @@
-# toolbar.py
+# examples/tool_bar.py
 import dearpygui.dearpygui as dpg
 
 
