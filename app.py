@@ -1,8 +1,10 @@
 # chat.py
-import dearpygui.dearpygui as dpg
-from typing import Union, Optional
 from pathlib import Path
-from ui.menu_bar.menu_bar import MenuBar
+from typing import Optional, Union
+
+import dearpygui.dearpygui as dpg
+
+from genesis.ui.tool_bar import Toolbar
 
 
 def set_font(
@@ -41,12 +43,9 @@ def on_apply(sender, app_data, user_data):
     print(f"Top-K: {top_k}, Top-P: {top_p}, Temperature: {temperature}")
 
 
-def set_viewport_menu_bar() -> None:
-    menu_bar = MenuBar()
-
-    with dpg.viewport_menu_bar():
-        menu_bar.create_chat_menu()
-        menu_bar.create_view_menu()
+def set_viewport_toolbar() -> None:
+    toolbar = Toolbar()
+    toolbar.create_toolbar()
 
 
 def set_chat_interface_window() -> None:
@@ -152,7 +151,7 @@ def main():
 
     custom_font = set_font()
 
-    set_viewport_menu_bar()
+    set_viewport_toolbar()
 
     set_chat_interface_window()
 
@@ -160,8 +159,6 @@ def main():
 
     # Bind the custom font to the text items with tags "chat_log" and "input"
     dpg.bind_font(custom_font)
-
-    dpg.show_font_manager()
 
     dpg.create_viewport(title="Custom Title", width=800, height=600)
     dpg.setup_dearpygui()
