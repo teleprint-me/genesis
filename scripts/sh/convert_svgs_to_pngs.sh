@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Get the input directory from the first argument or use the default
 input_dir="${1:-assets/boxicons-2.1.4/svg/solid}"
