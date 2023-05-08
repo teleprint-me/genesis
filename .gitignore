@@ -11,6 +11,13 @@ data/
 assets/
 
 #
+# Dependencies
+#
+./cpr
+./imgui
+./llama.cpp
+
+#
 # Visual Studio Code
 #
 .vscode/*
