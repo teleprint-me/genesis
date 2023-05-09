@@ -1,53 +1,32 @@
 #include <iostream>
 #include <string>
-#include <curl/curl.h>
+#include "../submodules/cpr/include/cpr/cpr.h"
+#include "../submodules/json/single_include/nlohmann/json.hpp"
+#include "openai.h"
 
-size_t WriteCallback(char *contents, size_t size, size_t nmemb, std::string *response)
+using json = nlohmann::json;
+
+OpenAI::OpenAI(const std::string &api_key) : api_key_(api_key) {}
+
+std::string OpenAI::generate_text(const std::string &prompt, int max_tokens)
 {
-    size_t totalSize = size * nmemb;
-    response->append(contents, totalSize);
-    return totalSize;
-}
+	const std::string url = "https://api.openai.com/v1/completions";
 
-int main()
-{
-    CURL *curl;
-    CURLcode res;
-    std::string response;
+	auto response = cpr::Post(
+		cpr::Url{url},
+		cpr::Header{
+			{"Authorization", "Bearer " + api_key_},
+			{"Content-Type", "application/json"}},
+		cpr::Body{json{{"model", "text-davinci-003"}, {"prompt", prompt}, {"max_tokens", max_tokens}}.dump()});
 
-    curl_global_init(CURL_GLOBAL_DEFAULT);
-    curl = curl_easy_init();
-
-    if (curl)
-    {
-        // Set the URL to request
-        curl_easy_setopt(curl, CURLOPT_URL, "https://api.example.com/endpoint");
-
-        // Set the callback function for the response
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-
-        // Perform the request
-        res = curl_easy_perform(curl);
-
-        // Check for errors
-        if (res != CURLE_OK)
-        {
-            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-        }
-
-        // Cleanup
-        curl_easy_cleanup(curl);
-    }
-
-    curl_global_cleanup();
-
-    // Handle the response
-    if (res == CURLE_OK)
-    {
-        // 'response' variable now contains the response data
-        std::cout << "Response: " << response << std::endl;
-    }
-
-    return 0;
+	if (response.status_code == 200)
+	{
+		json result = json::parse(response.text);
+		return result["choices"][0]["text"].get<std::string>();
+	}
+	else
+	{
+		std::cerr << "Error: " << response.status_code << " - " << response.text << std::endl;
+		return "";
+	}
 }
