@@ -1,21 +1,14 @@
 #
 # Local files
 #
-./main
+/main
 genisis.db
 
 #
 # Local directories
 #
-./chat
-./assets
-
-#
-# Dependencies
-#
-./cpr
-./imgui
-./llama.cpp
+/chat
+/assets
 
 #
 # Configuration files
