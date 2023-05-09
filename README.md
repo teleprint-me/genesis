@@ -8,13 +8,13 @@ Note: This project and its contents were created with the assistance of OpenAI's
 
 ## Features
 
-- Develop models from scratch
-- Train models from scratch
-- Manage datasets
-- Run inference on locally trained models (CPU or GPU)
-- Access external AI libraries and frameworks
-- Simplified interactions with AI models through an intuitive ImGui-based user interface
-- Support for integrating Python through ctypes
+-   Develop models from scratch
+-   Train models from scratch
+-   Manage datasets
+-   Run inference on locally trained models (CPU or GPU)
+-   Access external AI libraries and frameworks
+-   Simplified interactions with AI models through an intuitive ImGui-based user interface
+-   Support for integrating Python through ctypes
 
 ## Getting Started
 
@@ -22,36 +22,110 @@ Note: This project and its contents were created with the assistance of OpenAI's
 
 To use Genesis, you'll need the following prerequisites:
 
-- Arch Linux (other platforms may work but are not officially supported at this time)
-- C, C++, and Python development tools
-- ImGui library
+-   Arch Linux (other platforms may work but are not officially supported at this time)
+-   C, C++, and Python development tools
+-   ImGui library
 
 To install the necessary dependencies, follow these steps:
 
-1. Install the C and C++ development tools:
-   - On Arch Linux, you can use the package manager to install the necessary tools. Run the following command:
-     ```sh
-     sudo pacman -S gcc g++
-     ```
+1. Install the C, C++, and Python development tools:
 
-2. Install Python:
-   - Make sure you have Python 3.10 or later installed on your system. You can download Python from the official Python website: https://www.python.org/downloads/
+    - On Arch Linux, you can use the package manager to install the necessary tools. Run the following command:
 
-3. Install the required Python packages:
-   - Open a terminal and navigate to the project directory.
-   - Run the following command to install the required Python packages using Poetry:
-     ```sh
-     poetry install
-     ```
+        ```sh
+        # Base dependencies
+        sudo pacman -S gcc gdb make cmake python-pip
+        # Use `glfw-x11` for X11.
+        # Use `glfw-wayland` for Wayland.
+        sudo pacman -S glfw-wayland glew
+        # Curl dependency
+        sudo pacman -S libcurl-gnutls
+        ```
+
+        For other platforms, refer to the respective library/package documentation for installation instructions.
+
+2. Optional: Set up a virtual environment for Python:
+
+    ```sh
+    python -m venv venv
+    source venv/bin/activate
+    ```
+
+3. Optional: Install the required Python packages:
+
+    - Open a terminal and navigate to the project directory.
+    - Run the following command to install the required Python packages using Poetry:
+
+        ```sh
+        pip install --user pipx
+        pipx install poetry
+        poetry install
+        poetry shell
+        ```
+
+    The above commands install the necessary Python packages for Genesis using Poetry, a Python dependency management tool.
 
 4. Install the ImGui library:
-   - As you mentioned that you are using submodules, make sure the ImGui submodule is properly initialized and updated in your project. If it is not, you can run the following command to initialize and update the submodules:
-     ```sh
-     git submodule update --init
-     ```
-   - Once the submodules are initialized and updated, you can proceed to build and install the ImGui library according to the instructions provided in the submodule's documentation.
+
+    - If you are using submodules, ensure that the ImGui submodule is properly initialized and updated in your project. If it is not, run the following command to initialize and update the submodules:
+
+        ```sh
+        git submodule update --init
+        ```
+
+    - Once the submodules are initialized and updated, you can proceed to build and install the ImGui library according to the instructions provided in the submodule's documentation.
+
+        It is recommended to refer to the specific ImGui submodule's documentation for detailed instructions on building and installing the library.
 
 Make sure all the prerequisites are properly installed before proceeding with the installation and usage of Genesis.
+
+### Building Genesis
+
+To build Genesis, follow these steps:
+
+1. Build the CPR library:
+
+    To build the CPR library, perform the following:
+
+    ```sh
+    cd submodules/cpr
+    mkdir -p build
+    cd build
+    cmake ..
+    make
+    ```
+
+    This will compile the CPR library required by Genesis.
+
+2. Build Genesis:
+
+    To build Genesis, execute the following command in the project root directory:
+
+    ```sh
+    make
+    ```
+
+    This command compiles the source code and generates the Genesis binary.
+
+Ensure that you have the necessary prerequisites installed and handle any errors or missing dependencies that may arise during the build process.
+
+### Scripts
+
+Helper scripts are provided in the `scripts/shell/install` directory to assist with installing the required dependencies, setting up the Python development environment, and building the CPR library.
+
+1. Run `dependencies.sh` to install the necessary C, C++, and Python development tools and libraries.
+2. Run `python_dev.sh` to set up the Python development environment using Poetry.
+3. Run `cpr.sh` to build the CPR library.
+
+After running these scripts, proceed to build Genesis by executing the following command in the project root directory:
+
+```sh
+make
+```
+
+This command compiles the source code and generates the Genesis binary.
+
+Ensure that you have the necessary prerequisites installed and handle any errors or missing dependencies that may arise during the build process.
 
 ### Installation
 
@@ -61,9 +135,9 @@ _TODO: Add installation instructions_
 
 Genesis is built using ImGui, a powerful C++ GUI framework. As you work on the project, please ensure that you:
 
-- Keep the GUI and core functionality separate for easier unit testing
-- Write unit tests for non-GUI components
-- Test the GUI-specific parts manually or with a dedicated GUI testing framework if necessary
+-   Keep the GUI and core functionality separate for easier unit testing
+-   Write unit tests for non-GUI components
+-   Test the GUI-specific parts manually or with a dedicated GUI testing framework if necessary
 
 _TODO: Add more development guidelines and instructions_
 
