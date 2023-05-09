@@ -25,12 +25,17 @@ packages:
 	./scripts/shell/install/dependencies.sh
 
 clones:
-	git clone https://github.com/ocornut/imgui.git submodules/imgui
-	git clone --recursive https://github.com/whoshuu/cpr.git submodules/cpr
-	git clone https://github.com/ggerganov/ggml.git submodules/ggml
-	git clone https://github.com/ggerganov/llama.cpp.git submodules/llama.cpp
+	git submodule add https://github.com/ocornut/imgui.git submodules/imgui
+	git submodule add https://github.com/whoshuu/cpr.git submodules/cpr
+	git submodule add https://github.com/ggerganov/ggml.git submodules/ggml
+	git submodule add https://github.com/ggerganov/llama.cpp.git submodules/llama.cpp
+	git submodule init
+	git submodule update
+
+modules:
+	git submodule update --init
 
 clean:
 	rm -f $(TARGET) $(OBJECTS)
 
-.PHONY: all packages clones clean
+.PHONY: all packages clones clean modules
