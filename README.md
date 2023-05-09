@@ -71,7 +71,7 @@ To install the necessary dependencies, follow these steps:
 
 Make sure all the prerequisites are properly installed before proceeding with the installation and usage of Genesis.
 
-### Building Genesis
+### Building
 
 To build Genesis, follow these steps:
 
@@ -119,6 +119,38 @@ This command compiles the source code and generates the Genesis binary.
 
 Ensure that you have the necessary prerequisites installed and handle any errors or missing dependencies that may arise during the build process.
 
+### Setting up the Environment File
+
+Genesis requires an environment file, `.env`, in the project root directory to store sensitive information, such as the `OPENAI_API_KEY`.
+
+To create the `.env` file, follow these steps:
+
+1. In the project root directory, create a new file named `.env`.
+2. Open the `.env` file with your preferred text editor.
+3. Add the required environment variables in the following format:
+
+    ```
+    OPENAI_API_KEY=your_openai_api_key
+    ```
+
+    Replace `your_openai_api_key` with your actual API key.
+
+Save the `.env` file and close your text editor. The `run.sh` script will automatically source the `.env` file and set up the necessary environment variables when executed.
+
+Note: This is a temporary solution.
+
+### Running Genesis
+
+To run Genesis, execute the `run.sh` script in the project root directory:
+
+```sh
+./run.sh
+```
+
+This script will build Genesis, source the `.env` file, and set up the necessary environment variables before running the Genesis binary.
+
+Ensure that you have the necessary prerequisites installed, the `.env` file is properly set up, and handle any errors or missing dependencies that may arise during the build process.
+
 ### Installation
 
 _TODO: Add installation instructions_
@@ -135,7 +167,7 @@ _TODO: Add more development guidelines and instructions_
 
 ## Contributing
 
-_TODO: Add contribution guidelines, such as issue reporting, pull requests, code style, etc._
+I welcome contributions from the community! To get started, please read our [Contribution Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md). These documents provide essential information on issue reporting, pull requests, code style, and other guidelines for contributing to the project.
 
 ## License
 
