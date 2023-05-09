@@ -46,7 +46,6 @@ To install the necessary dependencies, follow these steps:
 
 2.  Optional: Set up the Python development environment:
 
-    -   Open a terminal and navigate to the project directory.
     -   Run the following commands to install the required Python packages using Poetry, a Python dependency management tool:
 
         ```sh
