@@ -13,8 +13,8 @@ genisis.db
 #
 # Configuration files
 #
-*.ini
-*.txt
+/*.ini
+/*.txt
 
 #
 # Visual Studio Code
