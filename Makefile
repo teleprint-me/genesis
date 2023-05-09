@@ -3,7 +3,7 @@ CXXFLAGS = -I./imgui -I./submodules/imgui -I./submodules/imgui/backends -I./subm
 LDFLAGS = -L$(CURDIR)/submodules/cpr/build/lib -Wl,-rpath=$(CURDIR)/submodules/cpr/build/lib -lglfw -lGLEW -lGL -lcpr
 
 TARGET = genesis
-SOURCES = genesis.cpp \
+SOURCES = src/genesis.cpp \
     ./submodules/imgui/imgui.cpp \
     ./submodules/imgui/imgui_draw.cpp \
     ./submodules/imgui/imgui_tables.cpp \
