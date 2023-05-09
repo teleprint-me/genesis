@@ -40,5 +40,7 @@
     "editor.defaultFormatter": null,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
 }
