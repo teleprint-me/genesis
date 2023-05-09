@@ -2,8 +2,10 @@ CXX = g++
 
 CXXFLAGS = -I./imgui -I./submodules/imgui \
 	-I./submodules/imgui/backends \
-	-I./submodules/cpr/include/cpr \
-	-Wall -Wextra -std=c++11
+	-I./submodules/cpr/include \
+	-I./submodules/cpr/build/cpr_generated_includes \
+	-I./submodules/json/single_include \
+	-Wall -Wextra -std=c++17
 
 LDFLAGS = -L$(CURDIR)/submodules/cpr/build/lib \
 	-Wl,-rpath=$(CURDIR)/submodules/cpr/build/lib \
@@ -11,7 +13,8 @@ LDFLAGS = -L$(CURDIR)/submodules/cpr/build/lib \
 
 TARGET = genesis
 
-SOURCES = src/genesis.cpp \
+SOURCES = ./src/genesis.cpp \
+	./src/openai.cpp \
 	./submodules/imgui/imgui.cpp \
 	./submodules/imgui/imgui_draw.cpp \
 	./submodules/imgui/imgui_tables.cpp \
@@ -35,6 +38,7 @@ packages:
 clones:
 	git submodule add https://github.com/ocornut/imgui.git submodules/imgui
 	git submodule add https://github.com/whoshuu/cpr.git submodules/cpr
+	git submodule add https://github.com/nlohmann/json submodules/json
 	git submodule add https://github.com/ggerganov/ggml.git submodules/ggml
 	git submodule add https://github.com/ggerganov/llama.cpp.git submodules/llama.cpp
 	git submodule init

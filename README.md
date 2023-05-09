@@ -11,7 +11,7 @@ Note: This project and its contents were created with the assistance of OpenAI's
 - Develop models from scratch
 - Train models from scratch
 - Manage datasets
-- Run inference on locally trained models
+- Run inference on locally trained models (CPU or GPU)
 - Access external AI libraries and frameworks
 - Simplified interactions with AI models through an intuitive ImGui-based user interface
 - Support for integrating Python through ctypes
