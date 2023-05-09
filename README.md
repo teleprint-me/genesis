@@ -28,9 +28,9 @@ To use Genesis, you'll need the following prerequisites:
 
 To install the necessary dependencies, follow these steps:
 
-1. Install the C, C++, and Python development tools:
+1.  Install the C, C++, and Python development tools:
 
-    - On Arch Linux, you can use the package manager to install the necessary tools. Run the following command:
+    -   On Arch Linux, you can use the package manager to install the necessary tools. Run the following command:
 
         ```sh
         # Base dependencies
@@ -44,17 +44,10 @@ To install the necessary dependencies, follow these steps:
 
         For other platforms, refer to the respective library/package documentation for installation instructions.
 
-2. Optional: Set up a virtual environment for Python:
+2.  Optional: Set up the Python development environment:
 
-    ```sh
-    python -m venv venv
-    source venv/bin/activate
-    ```
-
-3. Optional: Install the required Python packages:
-
-    - Open a terminal and navigate to the project directory.
-    - Run the following command to install the required Python packages using Poetry:
+    -   Open a terminal and navigate to the project directory.
+    -   Run the following commands to install the required Python packages using Poetry, a Python dependency management tool:
 
         ```sh
         pip install --user pipx
@@ -63,17 +56,17 @@ To install the necessary dependencies, follow these steps:
         poetry shell
         ```
 
-    The above commands install the necessary Python packages for Genesis using Poetry, a Python dependency management tool.
+    This will set up a virtual environment and install the necessary Python packages for Genesis.
 
-4. Install the ImGui library:
+3.  Install the ImGui library:
 
-    - If you are using submodules, ensure that the ImGui submodule is properly initialized and updated in your project. If it is not, run the following command to initialize and update the submodules:
+    -   If you are using submodules, ensure that the ImGui submodule is properly initialized and updated in your project. If it is not, run the following command to initialize and update the submodules:
 
         ```sh
         git submodule update --init
         ```
 
-    - Once the submodules are initialized and updated, you can proceed to build and install the ImGui library according to the instructions provided in the submodule's documentation.
+    -   Once the submodules are initialized and updated, you can proceed to build and install the ImGui library according to the instructions provided in the submodule's documentation.
 
         It is recommended to refer to the specific ImGui submodule's documentation for detailed instructions on building and installing the library.
 
