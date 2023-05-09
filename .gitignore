@@ -1,7 +1,6 @@
 #
 # Local files
 #
-output.txt
 genisis.db
 
 #
@@ -16,6 +15,12 @@ genisis.db
 ./cpr
 ./imgui
 ./llama.cpp
+
+#
+# Configuration files
+#
+*.ini
+*.txt
 
 #
 # Visual Studio Code
