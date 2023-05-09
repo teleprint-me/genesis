@@ -1,0 +1,12 @@
+[submodule "submodules/imgui"]
+	path = submodules/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "submodules/cpr"]
+	path = submodules/cpr
+	url = https://github.com/whoshuu/cpr.git
+[submodule "submodules/ggml"]
+	path = submodules/ggml
+	url = https://github.com/ggerganov/ggml.git
+[submodule "submodules/llama.cpp"]
+	path = submodules/llama.cpp
+	url = https://github.com/ggerganov/llama.cpp.git
