@@ -2,8 +2,8 @@ CXX = g++
 CXXFLAGS = -I./imgui -I./submodules/imgui -I./submodules/imgui/backends -I./submodules/cpr/include/cpr -Wall -Wextra -std=c++11
 LDFLAGS = -L$(CURDIR)/submodules/cpr/build/lib -Wl,-rpath=$(CURDIR)/submodules/cpr/build/lib -lglfw -lGLEW -lGL -lcpr
 
-TARGET = main
-SOURCES = main.cpp \
+TARGET = genesis
+SOURCES = genesis.cpp \
     ./submodules/imgui/imgui.cpp \
     ./submodules/imgui/imgui_draw.cpp \
     ./submodules/imgui/imgui_tables.cpp \
