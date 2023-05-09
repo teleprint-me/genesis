@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "imgui/imgui.h"
-#include "imgui/backends/imgui_impl_glfw.h"
-#include "imgui/backends/imgui_impl_opengl3.h"
+#include "submodules/imgui/imgui.h"
+#include "submodules/imgui/backends/imgui_impl_glfw.h"
+#include "submodules/imgui/backends/imgui_impl_opengl3.h"
 
 int main(void)
 {
